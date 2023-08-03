@@ -12,13 +12,19 @@ contract Box is Initializable {
 
     // Stores a new value in the contract
     function initialize(uint256 value) public initializer {
-        console.log("value",  value);
+        console.log("value", value);
         _value = value;
         emit ValueChanged(value);
-    }    
+    }
 
     // Reads the last stored value
     function retrieve() public view returns (uint256) {
         return _value;
+    }
+
+    // new method
+    function increment() public {
+        _value = _value + 1;
+        emit ValueChanged(_value);
     }
 }
